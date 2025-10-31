@@ -17,7 +17,6 @@ const Home = () => {
         <ul className='events'>
           {events.map((event)=>(
             <li key={event.title}>  <EventCard {...event} /> </li>
-           
           ))}
 
         </ul>
@@ -27,3 +26,4 @@ const Home = () => {
 }
 
 export default Home
+
