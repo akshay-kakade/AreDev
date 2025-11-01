@@ -76,12 +76,12 @@ const eventSchema = new Schema<IEvent>({
         trim: true
     },
     agenda: {
-        type: [String],
-        required: [true, 'Agenda items are required'],
-        validate: {
-            validator: (v: string[]) => Array.isArray(v) && v.length > 0,
-            message: 'At least one agenda item is required'
-        }
+      type: [String],
+      required: [true, 'Agenda is required'],
+      validate: {
+        validator: (v: string[]) => v.length > 0,
+        message: 'At least one agenda item is required',
+      },
     },
     organizer: {
         type: String,
@@ -89,14 +89,14 @@ const eventSchema = new Schema<IEvent>({
         trim: true
     },
     tags: {
-        type: [String],
-        required: [true, 'Tags are required'],
-        validate: {
-            validator: (v: string[]) => Array.isArray(v) && v.length > 0,
-            message: 'At least one tag is required'
-        }
-    }
-}, {
+      type: [String],
+      required: [true, 'Tags are required'],
+      validate: {
+        validator: (v: string[]) => v.length > 0,
+        message: 'At least one tag is required',
+      },
+    },
+  }, {
     timestamps: true
 });
 

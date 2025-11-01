@@ -42,8 +42,9 @@ async function connectDB(): Promise<typeof mongoose> {
         'Please define the MONGODB_URI environment variable inside .env.local'
       );
     }
-    const options = {
-      bufferCommands: false, // Disable Mongoose buffering
+    const options: mongoose.ConnectOptions = {
+      bufferCommands: false,
+      maxPoolSize: 10,
     };
 
     // Create a new connection promise
