@@ -1,8 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  cacheComponents: true,
+  images: {
+    remotePatterns:[
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      }
+    ]
+  },
   /* config options here */
-  async rewrites() {
+   async rewrites() {
     return [
       {
         source: "/ingest/static/:path*",
@@ -17,5 +26,6 @@ const nextConfig: NextConfig = {
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
 };
+
 
 export default nextConfig;
