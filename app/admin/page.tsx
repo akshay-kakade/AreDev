@@ -155,7 +155,7 @@ export default function AdminCreateEventPage() {
   return (
     <ThemeProvider theme={theme}>
       <section className="max-w-4xl w-full mx-auto">
-        <h1 className="mb-8">Admin: Create Event</h1>
+        <h1 className="mb-8 text-center">Admin: Create Event</h1>
 
         {message && (
           <div className="glass border border-green-600 text-green-400 px-4 py-3 rounded mb-6">
