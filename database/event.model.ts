@@ -135,7 +135,6 @@ eventSchema.pre('save', function(next) {
 });
 
 // Create indexes
-eventSchema.index({ slug: 1 });
 eventSchema.index({ tags: 1 });
 
 // Export the Event model
