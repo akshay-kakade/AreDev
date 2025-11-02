@@ -1,18 +1,22 @@
 import EventCard from '@/components/EventCard'
 import ExploreBtn from '@/components/ExploreBtn'
 import { IEvent } from '@/database';
-import { cacheLife } from 'next/cache';
+import { Suspense } from 'react';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
+const getEvents = async () => {
+  const response = await fetch(`${BASE_URL}/api/events`, { next: { revalidate: 1 } });
+  const { events } = await response.json();
+  return events;
+}
+
 const Home = async() => {
-   'use cache'
-   cacheLife('seconds')
-    const response = await fetch(`${BASE_URL}/api/events`);
-    const { events } = await response.json();
+  const events = await getEvents();
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <section>
-      <h1>The Hub for Every Dev <br /> Event you Can&apos;t Miss</h1>
+      <h1 className='text-center'>From Code to Community—Meet, Learn, Grow.</h1>
       <p className='text-center mt-5'>Hackathons , Meetups, and Conferences, All in One Place</p>
        <ExploreBtn />
        <div className='mt-20 space-y-7'>
@@ -27,8 +31,10 @@ const Home = async() => {
                 </ul>
        </div>
     </section>
+    </Suspense>
   )
 }
 
 export default Home
 
+//03:40:00
