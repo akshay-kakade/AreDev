@@ -12,4 +12,4 @@ const EventDetailsPage = async ({ params }: { params: Promise<{ slug: string }>}
         </main>
     )
 }
-export default EventDetailsPage
+export default EventDetailsPage; 
