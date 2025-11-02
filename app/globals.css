@@ -270,4 +270,44 @@
       }
     }
   }
+
+  /* Admin form - production-ready fields */
+  .admin-form {
+    input,
+    textarea,
+    select {
+      @apply bg-dark-200/70 text-foreground placeholder:text-light-200/60 border border-dark-200 rounded-[10px] px-4 py-2.5 transition outline-none;
+      @apply focus:border-primary focus:ring-2 focus:ring-primary/40;
+    }
+
+    textarea {
+      @apply min-h-24 resize-y;
+    }
+
+    select {
+      @apply appearance-none bg-[url('/icons/arrow-down.svg')] bg-[length:16px_16px] bg-no-repeat bg-[right_12px_center] pr-8;
+    }
+  }
+
+  /* react-datepicker dark theme */
+  .react-datepicker {
+    @apply bg-dark-100 border border-dark-200 rounded-md text-foreground;
+  }
+  .react-datepicker__header {
+    @apply bg-dark-200 border-b border-dark-200 text-light-100;
+  }
+  .react-datepicker__day,
+  .react-datepicker__time-list-item {
+    @apply text-foreground hover:bg-primary/20;
+  }
+  .react-datepicker__day--selected,
+  .react-datepicker__day--keyboard-selected,
+  .react-datepicker__time-list-item--selected {
+    @apply bg-primary text-black;
+  }
+  .react-datepicker__current-month,
+  .react-datepicker-time__header,
+  .react-datepicker-year-header {
+    @apply text-foreground;
+  }
 }

@@ -38,19 +38,24 @@ const EventTags = ({ tags }: { tags: string[] }) => (
 
 
 const EventDetails = async({ params }: { params: Promise<string>}) => {
-  'use cache';
-  cacheLife('hours')
   const  slug  = await params;
 
     let event;
     try {
         const request = await fetch(`${BASE_URL}/api/events/${slug}`, {
-            next: { revalidate: 60 }
+            next: { revalidate: 1 }
         });
 
         if (!request.ok) {
             if (request.status === 404) {
-                return notFound();
+                return (
+                  <section id="event">
+                    <div className="header">
+                      <h1>Event Ended</h1>
+                      <p>This event is no longer available.</p>
+                    </div>
+                  </section>
+                );
             }
             throw new Error(`Failed to fetch event: ${request.statusText}`);
         }
@@ -59,11 +64,25 @@ const EventDetails = async({ params }: { params: Promise<string>}) => {
         event = response.event;
 
         if (!event) {
-            return notFound();
+            return (
+              <section id="event">
+                <div className="header">
+                  <h1>Event Ended</h1>
+                  <p>This event is no longer available.</p>
+                </div>
+              </section>
+            );
         }
     } catch (error) {
         console.error('Error fetching event:', error);
-        return notFound();
+        return (
+          <section id="event">
+            <div className="header">
+              <h1>Event Ended</h1>
+              <p>This event is no longer available.</p>
+            </div>
+          </section>
+        );
     }
 
     const { description, image, overview, date, time, location, mode, agenda, audience, tags, organizer } = event;

@@ -4,6 +4,8 @@ import "./globals.css";
 import LightRays from "@/components/LightRays";
 import NavBar from "@/components/NavBar";
 import SplashCursor from "@/components/SplashCursor";
+import Footer from "@/components/Footer";
+import ToastProvider from "@/components/ToastProvider";
 
 const schibstedGrotesk = Schibsted_Grotesk({
   variable: "--font-schibsted-grotesk",
@@ -46,9 +48,12 @@ export default function RootLayout({
             />
           </div>
          
-          <main>
-            {children}
-          </main>
+          <ToastProvider>
+            <main>
+              {children}
+            </main>
+          </ToastProvider>
+          <Footer />
       </body>
     </html>
   );

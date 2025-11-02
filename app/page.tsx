@@ -1,15 +1,25 @@
 import ExploreBtn from "@/components/ExploreBtn";
 import EventCard from "@/components/EventCard";
 import {IEvent} from "@/database";
-import {cacheLife} from "next/cache";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 const Page = async () => {
-    'use cache';
-    cacheLife('hours')
-   const response = await fetch(`${BASE_URL}/api/events`);
-   const { events } = await response.json();
+   let events = [];
+   
+   try {
+     const response = await fetch(`${BASE_URL}/api/events`, { 
+       next: { revalidate: 1 }
+     });
+     
+     if (response.ok) {
+       const data = await response.json();
+       events = data.events || [];
+     }
+   } catch (error) {
+     console.error('Failed to fetch events:', error);
+     // Return empty array during build if API is unavailable
+   }
 
     return (
         <section>
