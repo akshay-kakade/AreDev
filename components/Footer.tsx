@@ -3,9 +3,9 @@ import { Github, Linkedin, Instagram, Youtube } from "lucide-react";
 
 const socials = [
   { name: "GitHub", href: "https://github.com/akshay-kakade", icon: Github },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/akshay-kakade", icon: Linkedin },
-  { name: "Instagram", href: "https://instagram.com/akshay_kakade", icon: Instagram },
-  { name: "YouTube", href: "https://youtube.com/@maverickjones", icon: Youtube },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/akshay-kakade-860224356", icon: Linkedin },
+  { name: "Instagram", href: "https://www.instagram.com/maverick_7821", icon: Instagram },
+  { name: "YouTube", href: "https://www.youtube.com/@itsgametimebudy", icon: Youtube },
 ];
 
 export default function Footer() {
@@ -18,7 +18,7 @@ export default function Footer() {
           <Link href="/terms" className="hover:text-primary transition-colors">Terms of Use</Link>
         </nav>
 
-        <ul className="flex items-center gap-5">
+        <ul className="flex items-center gap-5 list-none">
           {socials.map(({ name, href, icon: Icon }) => (
             <li key={name}>
               <Link
@@ -37,7 +37,7 @@ export default function Footer() {
         <p className="text-sm text-light-200 text-center">
           © 2025 AreDev. Created by
           {" "}
-          <span className="text-gradient bg-gradient-to-r from-white via-[#59deca] to-white font-semibold">
+          <span className="text-gradient bg-linear-to-r from-white via-[#59deca] to-white font-semibold">
             Akshay Kakade &amp; Maverick Jones
           </span>
         </p>
