@@ -6,7 +6,8 @@ import NavBar from "@/components/NavBar";
 import SplashCursor from "@/components/SplashCursor";
 import Footer from "@/components/Footer";
 import ToastProvider from "@/components/ToastProvider";
-import TopProgress from "@/components/TopProgress";
+import NextTopLoader from 'nextjs-toploader';
+
 
 const schibstedGrotesk = Schibsted_Grotesk({
   variable: "--font-schibsted-grotesk",
@@ -33,7 +34,7 @@ export default function RootLayout({
       <body
         className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased`}
       >
-        <TopProgress />
+        
          <NavBar />
         <SplashCursor />
         <div className="absolute inset-0 to-0 z-[-1] min-h-screen">
@@ -51,7 +52,9 @@ export default function RootLayout({
           </div>
          
           <ToastProvider>
+            
             <main>
+              <NextTopLoader />
               {children}
             </main>
           </ToastProvider>

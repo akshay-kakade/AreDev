@@ -87,7 +87,7 @@ export default function AdminEventsPage() {
   }
 
   return (
-    <section className="w-full">
+    <section className="max-w-xl mx-auto w-full">
       <div className="flex items-center justify-between mb-6">
         <h1>Manage Events</h1>
         <Link href="/admin" className="bg-primary text-black rounded-xl px-4 py-2">+ New Event</Link>

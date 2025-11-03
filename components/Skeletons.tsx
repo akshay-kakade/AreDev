@@ -32,7 +32,7 @@ export const EventDetailsSkeleton = () => (
 
     <div className="details">
       <div className="content">
-        <Skeleton className="h-[320px] w-full rounded-lg" />
+        <Skeleton className="h-80 w-full rounded-lg" />
         <div className="flex flex-col gap-3">
           <Skeleton className="h-6 w-40" />
           <Skeleton className="h-4 w-full" />
